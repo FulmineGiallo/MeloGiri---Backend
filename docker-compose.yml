@@ -1,0 +1,27 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+  ubuntu-client:
+    build:
+      context: ./backend/
+    image: lso:latest
+    container_name: server
+    command: /bin/bash /backend/start.sh
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/backend
+  #MYSQL Database
+  db:
+    build:
+      context: ./mysql/images/
+    image: mysql:latest
+    container_name: database
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+    
+    
