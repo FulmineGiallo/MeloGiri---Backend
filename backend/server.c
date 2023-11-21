@@ -401,6 +401,7 @@ int main()
 	}
 
 	// Impostazione dell'indirizzo
+	memset(&address, 0, sizeof(address));
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = inet_addr("209.38.244.243");
     address.sin_port = htons(PORT);
