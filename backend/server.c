@@ -382,7 +382,6 @@ int main()
 	char buffer[MESSAGE_SIZE]={0};
 	char *hello = "Ciao client Java!";
 
-
 	//creo il socket file descriptor
 	if((server_fd=socket(AF_INET, SOCK_STREAM, 0)) == 0)
 	{
