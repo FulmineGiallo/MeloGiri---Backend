@@ -406,9 +406,9 @@ int main()
         exit(EXIT_FAILURE);
     }
     address.sin_port = htons(PORT);
-	
-	
-	//bisnd del socket
+
+	printf("INDIRIZZO IP %s", address.sin_addr);
+	//Bind del socket
 	if(bind(server_fd,(struct sockaddr *)&address, sizeof(address)) < 0)
 	{
 		perror("Errore nel binding del socket");
