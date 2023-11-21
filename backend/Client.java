@@ -4,7 +4,7 @@ public class Client
 {
     public static void main(String[] args) throws IOException 
     {
-        SocketAPI richiesta = new SocketAPI("'209.38.244.243'", 80);
+        SocketAPI richiesta = new SocketAPI("209.38.244.243", 80);
         richiesta.login("carmine@email.com","1234prova");
     
     }

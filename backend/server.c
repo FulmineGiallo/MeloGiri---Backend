@@ -402,7 +402,7 @@ int main()
 
 	// Impostazione dell'indirizzo
     address.sin_family = AF_INET;
-    address.sin_addr.s_addr = INADDR_ANY;
+    address.sin_addr.s_addr = IP_ADDRESS;
     address.sin_port = htons(PORT);
 
 	//Bind del socket
