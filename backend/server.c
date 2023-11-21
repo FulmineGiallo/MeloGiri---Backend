@@ -402,7 +402,7 @@ int main()
 
 	// Impostazione dell'indirizzo
     address.sin_family = AF_INET;
-    address.sin_addr.s_addr = IP_ADDRESS;
+    address.sin_addr.s_addr = inet_addr("209.38.244.243");
     address.sin_port = htons(PORT);
 
 	//Bind del socket
@@ -412,7 +412,7 @@ int main()
 		exit(EXIT_FAILURE);
 	}
 	//metto in ascolto
-	if(listen(server_fd, 3) < 0)
+	if(listen(server_fd, 5) < 0)
 	{
 		perror("Errore nell ascolto delle connessioni in entrata");
 		exit(EXIT_FAILURE);
