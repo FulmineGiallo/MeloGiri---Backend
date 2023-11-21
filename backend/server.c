@@ -378,6 +378,7 @@ int main()
 	struct sockaddr_in address;
 	int opt=1;
 	int addrlen=sizeof(address);
+
 	char buffer[MESSAGE_SIZE]={0};
 	char *hello = "Ciao client Java!";
 
@@ -391,6 +392,7 @@ int main()
 	
 	printf("Benvenuto nel SERVER ... provo a connettermi al dabatabase in locale \n");
 	printf("Sto aspettando richieste... ");
+
 	//setto opzioni del socket
 	if(setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt)))
 	{
@@ -400,11 +402,7 @@ int main()
 
 	// Impostazione dell'indirizzo
     address.sin_family = AF_INET;
-    if (inet_pton(AF_INET, IP_ADDRESS, &address.sin_addr) <= 0) 
-	{
-        perror("Errore nella conversione dell'indirizzo IP");
-        exit(EXIT_FAILURE);
-    }
+    address.sin_addr.s_addr = INADDR_ANY;
     address.sin_port = htons(PORT);
 
 	//Bind del socket
