@@ -10,7 +10,7 @@
 #include <sys/socket.h>
 #include "cJSON.h"
 #include <arpa/inet.h>
-#define PORT 8081
+#define PORT 8080
 #define IP_ADDRESS "209.38.244.243"
 #define MESSAGE_SIZE 256
 
@@ -398,10 +398,14 @@ int main()
 		exit(EXIT_FAILURE);
 	}
 
-	//setto indirizzo socket
-	address.sin_family = AF_INET;
-	address.sin_addr.s_addr = inet_addr(IP_ADDRESS);
-	address.sin_port= htons(PORT);
+	// Impostazione dell'indirizzo
+    address.sin_family = AF_INET;
+    if (inet_pton(AF_INET, IP_ADDRESS, &address.sin_addr) <= 0) 
+	{
+        perror("Errore nella conversione dell'indirizzo IP");
+        exit(EXIT_FAILURE);
+    }
+    address.sin_port = htons(PORT);
 
 	//bisnd del socket
 	if(bind(server_fd,(struct sockaddr *)&address, sizeof(address)) < 0)
