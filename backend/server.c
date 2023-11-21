@@ -109,7 +109,7 @@ void *services(void *arg)
 	MYSQL_RES *res; //oggetto per i scorrere i risultati delle query
 	//MYSQL_ROW row; oggetto per individuare le righe delle tabelle
 	
-	char *server=""; 	//host a cui connettersi IP_privato
+	char *server="database"; 	//host a cui connettersi IP_privato
 	char *username="root"; 		//user db
 	char *password="root"; 		//password db
 	char *database="melogiri"; 	//nomedb
