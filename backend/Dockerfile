@@ -9,4 +9,4 @@ RUN apt-get install libmysqlclient-dev -y
 RUN apt install default-jre -y && apt install default-jdk -y
 
 #Porte aperte se è necessario
-EXPOSE 80/tcp
+EXPOSE 8080/tcp

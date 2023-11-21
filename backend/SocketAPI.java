@@ -18,6 +18,7 @@ public class SocketAPI
         String message = "1" + email + "&$" + password;
         System.out.println(createChannelSocket(message));
         
+        
     }
     /*TODO: cambiare da String ad un array di Bevande della classe Bevanda(Model) */
     String getBevande()

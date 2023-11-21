@@ -12,6 +12,8 @@ services:
       - db
     volumes:
       - ./backend:/backend
+    ports: 
+      
   #MYSQL Database
   db:
     build:

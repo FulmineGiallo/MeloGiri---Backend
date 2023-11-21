@@ -11,6 +11,7 @@
 #include "cJSON.h"
 
 #define PORT 8080
+#define IP_ADDRESS "209.38.244.243"
 #define MESSAGE_SIZE 256
 
 pthread_mutex_t mutex;
@@ -98,7 +99,7 @@ char *getBevande(MYSQL *conn)
 }
 
 //creo un thread per la gestione di connessione e query mysql. questo script andrà inserito all'interno della socket del server
-void *thread_login(void *arg)
+void *services(void *arg)
 {
 	char buffer[10000];
 	char sceltaStart[1000];
@@ -399,7 +400,7 @@ int main()
 
 	//setto indirizzo socket
 	address.sin_family = AF_INET;
-	address.sin_addr.s_addr = INADDR_ANY;
+	address.sin_addr.s_addr = inet_addr(IP_ADDRESS);
 	address.sin_port= htons(PORT);
 
 	//bisnd del socket
@@ -430,7 +431,7 @@ int main()
 		}
 
 		pthread_mutex_lock(&mutex);
-		res=pthread_create(&tid,NULL,thread_login,&client_fd);
+		res=pthread_create(&tid,NULL,services,&client_fd);
 
 		if(res)
 		{
