@@ -11,7 +11,7 @@
 #include "cJSON.h"
 #include <arpa/inet.h>
 #define PORT 8080
-#define IP_ADDRESS "172.17.0.1"
+#define IP_ADDRESS "209.38.244.243"
 #define MESSAGE_SIZE 256
 
 pthread_mutex_t mutex;
@@ -403,7 +403,7 @@ int main()
 	// Impostazione dell'indirizzo
 	memset(&address, 0, sizeof(address));
     address.sin_family = AF_INET;
-    address.sin_addr.s_addr = inet_addr("209.38.244.243");
+    address.sin_addr.s_addr = INADDR_ANY;
     address.sin_port = htons(PORT);
 
 	//Bind del socket
