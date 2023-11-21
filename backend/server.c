@@ -10,8 +10,8 @@
 #include <sys/socket.h>
 #include "cJSON.h"
 #include <arpa/inet.h>
-#define PORT 8081
-#define IP_ADDRESS "209.38.244.243"
+#define PORT 8080
+#define IP_ADDRESS "172.17.0.1"
 #define MESSAGE_SIZE 256
 
 pthread_mutex_t mutex;
