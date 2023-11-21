@@ -9,7 +9,7 @@
 #include <ctype.h>
 #include <sys/socket.h>
 #include "cJSON.h"
-
+#include <arpa/inet.h>
 #define PORT 8080
 #define IP_ADDRESS "209.38.244.243"
 #define MESSAGE_SIZE 256
