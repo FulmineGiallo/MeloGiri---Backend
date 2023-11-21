@@ -13,7 +13,7 @@ services:
     volumes:
       - ./backend:/backend
     ports: 
-      
+      - 8080:80
   #MYSQL Database
   db:
     build:
